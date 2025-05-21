@@ -77,7 +77,7 @@ Each point in the following figures represents an independent experiment, obtain
 ### Datasets
 | Dataset Name | Description | Link |
 |:------------:|:------------|:----:|
-| **DeepScaleR-Preview-Dataset** | Training dataset | [🤗 HuggingFace](https://huggingface.co/datasets/agentica-org/DeepScaleR-Preview-Dataset) |
+| **Laser-Deepscaler-Dataset** | Training dataset | [🤗 HuggingFace](https://huggingface.co/datasets/hkust-nlp/Laser-Deepscaler-Dataset) |
 
 ### Models
 
@@ -118,19 +118,65 @@ Each point in the following figures represents an independent experiment, obtain
 ### Installation
 
 ```bash
-...
+conda create -n laser python=3.10
+git clone https://github.com/hkust-nlp/Laser.git
+
+pip install -r requirement.txt
+pip install flash-attn==2.6.3 --no-build-isolation
+pip install -e . --no-dependencies
 ```
+
+### Data Preparation
+
+```bash
+python scripts/pull_from_hub.py --repo_id hkust-nlp/Laser-Deepscaler-Dataset --local_path ./data/deepscaler --repo_type dataset --ignore_patterns "global_step*"
+```
+
+or you can download the dataset from [🤗 HuggingFace](https://huggingface.co/datasets/hkust-nlp/Laser-Deepscaler-Dataset) and put it in the `data/deepscaler` folder.
 
 ### Training
 
+If you use slurm to run the training with ray, you can use the following command:
+
 ```bash
-...
+bash scripts/example/ray_start_slurm.sh $SCRIPT
+
+# e.g. bash scripts/example/ray_start_slurm.sh scripts/training/laser-de-1.5b/laser-de-1.5B-l4096.sh
+```
+
+Otherwise, you can use the following command to run the training with ray:
+```bash
+bash scripts/example/ray_start_sh.sh $SCRIPT
+```
+
+SCRIPT is the script you want to run, for example, `scripts/training/laser-de-1.5b/laser-de-1.5B-l4096.sh`.
+```bash
+# Laser
+scripts/training/laser-1.5b/laser-1.5b-l2048.sh
+scripts/training/laser-1.5b/laser-1.5b-l4096.sh
+scripts/training/laser-1.5b/laser-1.5b-l8192.sh
+
+# Laser-D
+scripts/training/laser-d-1.5b/laser-d-1.5b-l1024.sh
+scripts/training/laser-d-1.5b/laser-d-1.5b-l2048.sh
+scripts/training/laser-d-1.5b/laser-d-1.5b-l4096.sh
+
+# Laser-DE
+scripts/training/laser-de-1.5b/laser-de-1.5b-l1024.sh
+scripts/training/laser-de-1.5b/laser-de-1.5b-l2048.sh
+scripts/training/laser-de-1.5b/laser-de-1.5b-l4096.sh
 ```
 
 ### Evaluation
 
 ```bash
-...
+
+RUNNAME=""
+INIT_MODEL_PATH=""  # path to the init model, or any hf model path
+TPSIZE=1
+STEPS="" # if empty, init model will be evaluated
+
+bash Qwen2.5-Math/evaluation/sh/nodes/run_eval.sh $RUNNAME $INIT_MODEL_PATH $TPSIZE $STEPS
 ```
 
 ## Citation
