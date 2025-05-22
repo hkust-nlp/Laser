@@ -2,7 +2,8 @@
 
 <p align="center">
   :hugs: <a href="https://huggingface.co/collections/hkust-nlp/laser-682c7d44f347ac572ec054d3">HF Repo</a>&nbsp;&nbsp;&nbsp;
-  :page_with_curl: <a href="">Paper</a>
+  :page_with_curl: <a href="https://arxiv.org/abs/2505.15612">Paper</a>
+  :bird: <a href="https://x.com/WeiLiu99/status/1925408572831408145">Twitter</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 This repo contains the resources (**Code**, **Data**, **Models**) for the paper "Laser: Learn to Reason Efficiently with Adaptive Length-based Reward Shaping"
