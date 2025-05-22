@@ -183,5 +183,18 @@ bash Qwen2.5-Math/evaluation/sh/nodes/run_eval.sh $RUNNAME $INIT_MODEL_PATH $TPS
 If you find the content of this project helpful, please cite our paper as follows:
 
 ```
-...
+@misc{liu2025learnreasonefficientlyadaptive,
+      title={Learn to Reason Efficiently with Adaptive Length-based Reward Shaping}, 
+      author={Wei Liu and Ruochen Zhou and Yiyun Deng and Yuzhen Huang and Junteng Liu and Yuntian Deng and Yizhe Zhang and Junxian He},
+      year={2025},
+      eprint={2505.15612},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.15612}, 
+}
 ```
+
+## Acknowledgements
+
+- As a sister project of [SimpleRL](https://github.com/hkust-nlp/simpleRL-reason), we would like to thank the authors of [SimpleRl](https://github.com/hkust-nlp/simpleRL-reason) for their great work.
+- Our code is built on the great work of [verl](https://github.com/volcengine/verl).
