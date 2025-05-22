@@ -196,5 +196,5 @@ If you find the content of this project helpful, please cite our paper as follow
 
 ## Acknowledgements
 
-- As a sister project of [SimpleRL](https://github.com/hkust-nlp/simpleRL-reason), we would like to thank the authors of [SimpleRl](https://github.com/hkust-nlp/simpleRL-reason) for their great work.
+- As a sister project of [SimpleRL](https://github.com/hkust-nlp/simpleRL-reason), we would like to thank the authors of [SimpleRL](https://github.com/hkust-nlp/simpleRL-reason) for their great work.
 - Our code is built on the great work of [verl](https://github.com/volcengine/verl).
